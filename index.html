@@ -7,9 +7,8 @@
   </head>
   <body>
     <script>
-
-      function getComputerChoice() {
-        switch (Math.floor(Math.random() * 3)) {
+      function getComputerChoice(num) {
+        switch (num) {
           case 0:
             return "ROCK";
             break;
@@ -67,23 +66,21 @@
 
       function playGame() {
         for (let i = 0; i < 5; i) {
-            let getPlayerChoice = prompt(
-              "What do you choose Rock - Paper - Scissors?"
-            ).toUpperCase();
+          let getPlayerChoice = prompt(
+            "What do you choose Rock - Paper - Scissors?"
+          ).toUpperCase();
 
-          playRound(getPlayerChoice, getComputerChoice());
+          let number = Math.floor(Math.random() * 3);
+
+          playRound(getPlayerChoice, getComputerChoice(number));
 
           if (
-            playRound(getPlayerChoice, getComputerChoice()).startsWith(
-              "You Won"
-            )
+            playRound(getPlayerChoice, getComputerChoice(number)).startsWith("You Won")
           ) {
             playerScore++;
             i++;
           } else if (
-            playRound(getPlayerChoice, getComputerChoice()).startsWith(
-              "You Lose"
-            )
+            playRound(getPlayerChoice, getComputerChoice(number)).startsWith("You Lose")
           ) {
             computerScore++;
             i++;
@@ -92,7 +89,7 @@
           }
 
           console.log(`Round ${i}`);
-          // console.log(playRound(getplayerChoice, getComputerChoice()));
+          console.log(playRound(getPlayerChoice, getComputerChoice(number)));
           if (i == 5) {
             console.log(
               `Game Over! Final score is ${playerScore} - ${computerScore}`
@@ -104,9 +101,8 @@
         }
       }
 
-      console.log(playRound(getPlayerChoice, getComputerChoice()))
+      // console.log(playRound(getPlayerChoice, getComputerChoice()))
       console.log(playGame());
-
     </script>
   </body>
 </html>
