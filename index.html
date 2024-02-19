@@ -8,12 +8,6 @@
   <body>
     <script>
 
-        function getPlayerChoice() {
-            return prompt(
-            "What do you choose Rock - Paper - Scissors?"
-          ).toUpperCase();
-        }
-
       function getComputerChoice() {
         switch (Math.floor(Math.random() * 3)) {
           case 0:
@@ -73,9 +67,9 @@
 
       function playGame() {
         for (let i = 0; i < 5; i) {
-          let getPlayerChoice = prompt(
-            "What do you choose Rock - Paper - Scissors?"
-          ).toUpperCase();
+            let getPlayerChoice = prompt(
+              "What do you choose Rock - Paper - Scissors?"
+            ).toUpperCase();
 
           playRound(getPlayerChoice, getComputerChoice());
 
@@ -99,10 +93,10 @@
 
           console.log(`Round ${i}`);
           // console.log(playRound(getplayerChoice, getComputerChoice()));
-          if ((i == 5)) {
+          if (i == 5) {
             console.log(
               `Game Over! Final score is ${playerScore} - ${computerScore}`
-            )
+            );
             break;
           } else {
             console.log(`Current score is ${playerScore} - ${computerScore}`);
@@ -110,8 +104,8 @@
         }
       }
 
-      //console.log(playRound(getPlayerChoice(), getComputerChoice()))
-      //console.log(playGame());
+      console.log(playRound(getPlayerChoice, getComputerChoice()))
+      console.log(playGame());
 
     </script>
   </body>
