@@ -7,6 +7,13 @@
   </head>
   <body>
     <script>
+
+        function getPlayerChoice() {
+            return prompt(
+            "What do you choose Rock - Paper - Scissors?"
+          ).toUpperCase();
+        }
+
       function getComputerChoice() {
         switch (Math.floor(Math.random() * 3)) {
           case 0:
@@ -21,8 +28,8 @@
         }
       }
 
-      function playRound(getplayerChoice, getComputerChoice) {
-        if (getplayerChoice === "ROCK") {
+      function playRound(getPlayerChoice, getComputerChoice) {
+        if (getPlayerChoice === "ROCK") {
           switch (getComputerChoice) {
             case "ROCK":
               return "It's a Tie! Rock is Rock";
@@ -34,7 +41,7 @@
               return "You Won! Rock beats Scissors";
               break;
           }
-        } else if (getplayerChoice === "PAPER") {
+        } else if (getPlayerChoice === "PAPER") {
           switch (getComputerChoice) {
             case "PAPER":
               return "It's a Tie! Paper is Paper";
@@ -46,7 +53,7 @@
               return "You Won! Paper beats Rock";
               break;
           }
-        } else if (getplayerChoice === "SCISSORS") {
+        } else if (getPlayerChoice === "SCISSORS") {
           switch (getComputerChoice) {
             case "SCISSORS":
               return "It's a Tie! Scissors are Scissors";
@@ -66,21 +73,21 @@
 
       function playGame() {
         for (let i = 0; i < 5; i) {
-          let getplayerChoice = prompt(
+          let getPlayerChoice = prompt(
             "What do you choose Rock - Paper - Scissors?"
           ).toUpperCase();
 
-          playRound(getplayerChoice, getComputerChoice());
+          playRound(getPlayerChoice, getComputerChoice());
 
           if (
-            playRound(getplayerChoice, getComputerChoice()).startsWith(
+            playRound(getPlayerChoice, getComputerChoice()).startsWith(
               "You Won"
             )
           ) {
             playerScore++;
             i++;
           } else if (
-            playRound(getplayerChoice, getComputerChoice()).startsWith(
+            playRound(getPlayerChoice, getComputerChoice()).startsWith(
               "You Lose"
             )
           ) {
@@ -91,21 +98,21 @@
           }
 
           console.log(`Round ${i}`);
-          console.log(playRound(getplayerChoice, getComputerChoice()));
-          if ((i = 5)) {
+          // console.log(playRound(getplayerChoice, getComputerChoice()));
+          if ((i == 5)) {
             console.log(
               `Game Over! Final score is ${playerScore} - ${computerScore}`
-            );
+            )
+            break;
           } else {
             console.log(`Current score is ${playerScore} - ${computerScore}`);
           }
         }
       }
 
-      console.log(playGame());
-      //   console.log(getComputerChoice());
-      //   console.log(getplayerChoice);
-      //   console.log(playRound(getplayerChoice, getComputerChoice()));
+      //console.log(playRound(getPlayerChoice(), getComputerChoice()))
+      //console.log(playGame());
+
     </script>
   </body>
 </html>
