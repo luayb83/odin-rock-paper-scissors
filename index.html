@@ -7,11 +7,6 @@
   </head>
   <body>
     <script>
-        
-      let getplayerChoice = prompt(
-        "What do you choose Rock - Paper - Scissors?: "
-      ).toUpperCase();
-
       function getComputerChoice() {
         switch (Math.floor(Math.random() * 3)) {
           case 0:
@@ -40,7 +35,7 @@
               break;
           }
         } else if (getplayerChoice === "PAPER") {
-            switch (getComputerChoice) {
+          switch (getComputerChoice) {
             case "PAPER":
               return "It's a Tie! Paper is Paper";
               break;
@@ -52,7 +47,7 @@
               break;
           }
         } else if (getplayerChoice === "SCISSORS") {
-            switch (getComputerChoice) {
+          switch (getComputerChoice) {
             case "SCISSORS":
               return "It's a Tie! Scissors are Scissors";
               break;
@@ -66,9 +61,51 @@
         }
       }
 
-      console.log(getComputerChoice());
-      console.log(getplayerChoice);
-      console.log(playRound(getplayerChoice, getComputerChoice()));
+      let playerScore = 0;
+      let computerScore = 0;
+
+      function playGame() {
+        for (let i = 0; i < 5; i) {
+          let getplayerChoice = prompt(
+            "What do you choose Rock - Paper - Scissors?"
+          ).toUpperCase();
+
+          playRound(getplayerChoice, getComputerChoice());
+
+          if (
+            playRound(getplayerChoice, getComputerChoice()).startsWith(
+              "You Won"
+            )
+          ) {
+            playerScore++;
+            i++;
+          } else if (
+            playRound(getplayerChoice, getComputerChoice()).startsWith(
+              "You Lose"
+            )
+          ) {
+            computerScore++;
+            i++;
+          } else {
+            i++;
+          }
+
+          console.log(`Round ${i}`);
+          console.log(playRound(getplayerChoice, getComputerChoice()));
+          if ((i = 5)) {
+            console.log(
+              `Game Over! Final score is ${playerScore} - ${computerScore}`
+            );
+          } else {
+            console.log(`Current score is ${playerScore} - ${computerScore}`);
+          }
+        }
+      }
+
+      console.log(playGame());
+      //   console.log(getComputerChoice());
+      //   console.log(getplayerChoice);
+      //   console.log(playRound(getplayerChoice, getComputerChoice()));
     </script>
   </body>
 </html>
